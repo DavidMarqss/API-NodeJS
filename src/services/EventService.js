@@ -6,7 +6,7 @@ module.exports = {
             db.query(`SELECT * FROM evento 
             INNER JOIN tipo_evento ON tipo_evento.id_tipo = evento.fk_id_tipo 
             INNER JOIN instituicao ON instituicao.id_instituicao = evento.instituicao_id_instituicao
-            INNER JOIN lugar ON lugar.id_lugar = evento.lugar_id_lugar`, (error, results)=>{
+            INNER JOIN lugar ON lugar.id_lugar = evento.lugar_id_lugar ORDER BY id_evento`, (error, results)=>{
                 if(error) { rejeitado(error); return;}
                 aceito(results);
             });

@@ -5,7 +5,7 @@ module.exports = {
         return new Promise((aceito, rejeitado)=>{
             db.query(`SELECT * FROM imagem 
             INNER JOIN (SELECT id_evento, nome FROM evento ) AS e ON e.id_evento = imagem.evento_id_evento
-            INNER JOIN instituicao ON instituicao.id_instituicao = imagem.evento_instituicao_id_instituicao`, (error, results)=>{
+            INNER JOIN instituicao ON instituicao.id_instituicao = imagem.evento_instituicao_id_instituicao ORDER BY id_imagem`, (error, results)=>{
                 if(error) { rejeitado(error); return;}
                 aceito(results);
             });
