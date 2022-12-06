@@ -43,11 +43,11 @@ module.exports = {
         });
     },
 
-    updateEvent: (id_evento, nome, descricao, instituicao_id_instituicao, lugar_id_lugar, fk_id_tipo, data_inicio, data_fim, hora_inicio, hora_fim) =>{
+    updateEvent: (id_evento,nome, descricao, instituicao_id_instituicao, lugar_id_lugar, fk_id_tipo, data_inicio, data_fim, hora_inicio, hora_fim) =>{
         return new Promise((aceito, rejeitado)=>{
 
-            db.query('UPDATE evento SET id_evento = ?, data_hora = ?, nome = ?, descricao = ?, instituicao_id_instituicao = ?, lugar_id_lugar = ?, fk_id_tipo = ? WHERE id_evento = ?', 
-                [id_evento, nome, descricao, instituicao_id_instituicao, lugar_id_lugar, fk_id_tipo, data_inicio, data_fim, hora_inicio, hora_fim], (error, results)=>{
+            db.query('UPDATE evento SET nome = ?, descricao = ?, instituicao_id_instituicao = ?, lugar_id_lugar = ?, fk_id_tipo = ?, data_inicio = ?, data_fim = ?, hora_inicio =?, hora_fim = ?  WHERE id_evento = ?', 
+                [nome, descricao, instituicao_id_instituicao, lugar_id_lugar, fk_id_tipo, data_inicio, data_fim, hora_inicio, hora_fim, id_evento], (error, results)=>{
                     if(error) { rejeitado(error); return; }
                     aceito(results);
               
